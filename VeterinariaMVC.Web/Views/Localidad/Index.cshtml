@@ -1,0 +1,70 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Localidad.LocalidadFilterListViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <a href="@Url.Action("Create","Localidad")" class="btn btn-primary" style="float: right">
+        Nuevo
+    </a>
+    <h2>Listado de Localidades</h2>
+</div>
+@if (TempData["Msg"] != null)
+{
+    var msg = TempData["Msg"].ToString();
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Éxito!</strong> @msg
+    </div>
+
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <h4>Filtro:</h4>
+        <div class="list-group">
+            <div class="list-group">
+                @Html.ActionLink("Todos", "Index", null, new { @class = Request["provincia"] == null ? "list-group-item active" : "list-group-item" })
+                @foreach (var p in Model.Provincia)
+                {
+                    @Html.ActionLink(p.NombreProvincia, "Index", new { provincia = p.NombreProvincia }, new { @class = Request["provincia"] == p.NombreProvincia ? "list-group-item active" : "list-group-item" })
+                }
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-10">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Localidad[0].NombreLocalidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Localidad[0].Provincia)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Localidad)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreLocalidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Provincia)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LocalidadId }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.LocalidadId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
+

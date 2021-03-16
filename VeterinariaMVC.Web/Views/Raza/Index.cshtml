@@ -1,0 +1,70 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Raza.RazaFilterListViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <a href="@Url.Action("Create","Raza")" class="btn btn-primary" style="float: right">
+        Nuevo
+    </a>
+    <h2>Listado de Razas</h2>
+</div>
+@if (TempData["Msg"] != null)
+{
+    var msg = TempData["Msg"].ToString();
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Éxito!</strong> @msg
+    </div>
+
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-2">
+            <h4>Filtro:</h4>
+            <div class="list-group">
+                <div class="list-group">
+                    @Html.ActionLink("Todos", "Index", null, new { @class = Request["tipoMascota"] == null ? "list-group-item active" : "list-group-item" })
+                    @foreach (var tipo in Model.TipoDeMascota)
+                    {
+                        @Html.ActionLink(tipo.Descripcion, "Index", new { tipoMascota = tipo.Descripcion }, new { @class = Request["tipoMascota"] == tipo.Descripcion ? "list-group-item active" : "list-group-item" })
+                    }
+                </div>
+            </div>
+
+        </div>
+    <div class="col-md-10">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Raza[0].Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Raza[0].TipoDeMascota)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Raza)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoDeMascota)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RazaId }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RazaId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,42 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Localidad.LocalidadEditViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>Está seguro de borrar el registro seleccionado?</h3>
+<div>
+    <h4>Localidad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreLocalidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreLocalidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.LocalidadId)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>
+
