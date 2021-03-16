@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VeterinariaMVC.Entidades.ViewModels.TipoDeMedicamento.TipoDeMedicamentoListViewModel>
+<div>
+    <a href="@Url.Action("Create","TipoDeMedicamento")" class="btn btn-primary" style="float: right">Nuevo</a>
+    <h2>Lista de Tipos De Medicamentos
+    </h2>
+
+</div>
+<hr />
+@if (TempData["Msg"] != null)
+{
+    var msg = TempData["Msg"].ToString();
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Éxito!</strong> @msg
+    </div>
+
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TipoDeMedicamentoId}, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TipoDeMedicamentoId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TipoDeMedicamentoId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+

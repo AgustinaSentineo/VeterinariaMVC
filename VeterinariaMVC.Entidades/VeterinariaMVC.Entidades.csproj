@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5FC84FAA-847B-4AB7-BEEC-B36D4605EB8E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VeterinariaMVC.Entidades</RootNamespace>
+    <AssemblyName>VeterinariaMVC.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTOs\FormaFarmaceutica\FormaFarmaceuticaEditDto.cs" />
+    <Compile Include="DTOs\FormaFarmaceutica\FormaFarmaceuticaListDto.cs" />
+    <Compile Include="DTOs\Laboratorio\LaboratorioEditDto.cs" />
+    <Compile Include="DTOs\Laboratorio\LaboratorioListDto.cs" />
+    <Compile Include="DTOs\Marca\MarcaEditDto.cs" />
+    <Compile Include="DTOs\Marca\MarcaListDto.cs" />
+    <Compile Include="DTOs\Provincia\ProvinciaEditDto.cs" />
+    <Compile Include="DTOs\Provincia\ProvinciaListDto.cs" />
+    <Compile Include="DTOs\TipoDeDocumento\TipoDeDocumentoEditDto.cs" />
+    <Compile Include="DTOs\TipoDeDocumento\TipoDeDocumentoListDto.cs" />
+    <Compile Include="DTOs\TipoDeMascota\TipoDeMascotaEditDto.cs" />
+    <Compile Include="DTOs\TipoDeMascota\TipoDeMascotaListDto.cs" />
+    <Compile Include="DTOs\TipoDeMedicamento\TipoDeMedicamentoEditDto.cs" />
+    <Compile Include="DTOs\TipoDeMedicamento\TipoDeMedicamentoListDto.cs" />
+    <Compile Include="DTOs\TipoDeProducto\TipoDeProductoEditDto.cs" />
+    <Compile Include="DTOs\TipoDeProducto\TipoDeProductoListDto.cs" />
+    <Compile Include="DTOs\TipoDeTarea\TipoDeTareaEditDto.cs" />
+    <Compile Include="DTOs\TipoDeTarea\TipoDeTareaListDto.cs" />
+    <Compile Include="Entidades\FormaFarmaceutica.cs" />
+    <Compile Include="Entidades\Laboratorio.cs" />
+    <Compile Include="Entidades\Marca.cs" />
+    <Compile Include="Entidades\Provincia.cs" />
+    <Compile Include="Entidades\TipoDeDocumento.cs" />
+    <Compile Include="Entidades\TipoDeMascota.cs" />
+    <Compile Include="Entidades\TipoDeMedicamento.cs" />
+    <Compile Include="Entidades\TipoDeProducto.cs" />
+    <Compile Include="Entidades\TipoDeTarea.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FormaFarmaceutica\FormaFarmaceuticaEditViewModel.cs" />
+    <Compile Include="ViewModels\FormaFarmaceutica\FormaFarmaceuticaListViewModel.cs" />
+    <Compile Include="ViewModels\Laboratorio\LaboratorioEditViewModel.cs" />
+    <Compile Include="ViewModels\Laboratorio\LaboratorioListViewModel.cs" />
+    <Compile Include="ViewModels\Marca\MarcaEditViewModel.cs" />
+    <Compile Include="ViewModels\Marca\MarcaListViewModel.cs" />
+    <Compile Include="ViewModels\Provincia\ProvinciaEditViewModel.cs" />
+    <Compile Include="ViewModels\Provincia\ProvinciaListViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeDocumento\TipoDeDocumentoEditViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeDocumento\TipoDeDocumentoListViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeMascota\TipoDeMascotaEditViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeMascota\TipoDeMascotaListViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeMedicamento\TipoDeMedicamentoEditViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeMedicamento\TipoDeMedicamentoListViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeProducto\TipoDeProductoEditViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeProducto\TipoDeProductoListViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeTarea\TipoDeTareaEditViewModel.cs" />
+    <Compile Include="ViewModels\TipoDeTarea\TipoDeTareaListViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
