@@ -164,7 +164,7 @@ namespace VeterinariaMVC.Windows
             var localidadCopia = (LocalidadListDto)localidadListDto.Clone();
             frmLocalidadAE frm = DI.Create<frmLocalidadAE>();
             frm.Titulo("Editar Localidad");
-            LocalidadEditDto localidadEditDto = mapper.Map<LocalidadEditDto>(localidadListDto);
+            LocalidadEditDto localidadEditDto = servicio.GetLocalidadPorId(localidadListDto.LocalidadId);
             frm.SetLocalidad(localidadEditDto);
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel)

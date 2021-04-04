@@ -25,11 +25,13 @@ namespace VeterinariaMVC.Windows
         {
             base.OnLoad(e);
             Helper.Helper.CargarComboProvincias(ref mcbProvincia);
-            if (localidadEditDto != null)
+            if (localidadEditDto == null)
             {
-                txtLocalidad.Text = localidadEditDto.NombreLocalidad;
-                mcbProvincia.SelectedValue = localidadEditDto.ProvinciaId;
+                return;
             }
+
+            txtLocalidad.Text = localidadEditDto.NombreLocalidad;
+            mcbProvincia.SelectedValue = localidadEditDto.ProvinciaId;
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {

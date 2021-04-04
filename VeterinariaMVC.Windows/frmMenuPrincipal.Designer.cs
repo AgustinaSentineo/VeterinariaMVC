@@ -215,6 +215,7 @@ namespace VeterinariaMVC.Windows
             this.btnRazas.Text = "Razas";
             this.btnRazas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRazas.UseVisualStyleBackColor = true;
+            this.btnRazas.Click += new System.EventHandler(this.btnRazas_Click);
             // 
             // btnMascotas
             // 

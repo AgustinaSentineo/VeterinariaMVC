@@ -89,6 +89,11 @@ namespace VeterinariaMVC.Windows
             AbrirFormInPanel(frm);
         }
 
+        private void btnRazas_Click(object sender, EventArgs e)
+        {
+            frmRaza frm = DI.Create<frmRaza>();
+            AbrirFormInPanel(frm);
+        }
         private void btnLocalidades_Click(object sender, EventArgs e)
         {
             frmLocalidad frm = DI.Create<frmLocalidad>();

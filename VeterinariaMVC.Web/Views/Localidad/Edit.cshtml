@@ -23,6 +23,12 @@
                     @Html.ValidationMessageFor(model => model.ProvinciaId, "", new { @class = "text-danger" })
                 </div>
 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NombreLocalidad)
+                    @Html.TextBoxFor(model => model.NombreLocalidad, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NombreLocalidad, "", new { @class = "text-danger" })
+                </div>
+
             </div>
 
         </div>

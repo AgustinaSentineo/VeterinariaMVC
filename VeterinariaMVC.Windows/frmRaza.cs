@@ -156,7 +156,7 @@ namespace VeterinariaMVC.Windows
             var razaCopia = (RazaListDto)razaListDto.Clone();
             frmRazaAE frm = DI.Create<frmRazaAE>();
             frm.Titulo("Editar Raza");
-            RazaEditDto razaEditDto = mapper.Map<RazaEditDto>(razaListDto);
+            RazaEditDto razaEditDto = servicio.GetRazaPorId(razaListDto.RazaId);
             frm.SetRaza(razaEditDto);
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel)
