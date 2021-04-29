@@ -1,0 +1,131 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Alimento.AlimentoEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm("Edit", "Alimento", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Alimento</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.AlimentoId)
+        @Html.HiddenFor(model => model.Imagen)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nombre)
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoDeAlimentoId)
+                @Html.DropDownListFor(model => model.TipoDeAlimentoId, new SelectList(Model.TipoDeAlimento, "TipoDeAlimentoId", "Descripcion"), "Seleccione Tipo de Alimento", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoDeAlimentoId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ClasificacionId)
+                @Html.DropDownListFor(model => model.ClasificacionId, new SelectList(Model.Clasificacion, "ClasificacionId", "Descripcion"), "Seleccione uan Clasificacion", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClasificacionId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.NecesidadesEspecialesId)
+                @Html.DropDownListFor(model => model.NecesidadesEspecialesId, new SelectList(Model.NecesidadesEspeciales, "NecesidadesEspecialesId", "Descripcion"), "Seleccione uan Necesidad Especial", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NecesidadesEspecialesId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MarcaId)
+                @Html.DropDownListFor(model => model.MarcaId, new SelectList(Model.Marca, "MarcaId", "Nombre"), "Seleccione una Marca", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MarcaId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoDeMascotaId)
+                @Html.DropDownListFor(model => model.TipoDeMascotaId, new SelectList(Model.TipoDeMascota, "TipoDeMascotaId", "Descripcion"), "Seleccione una Tipo De Mascota", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoDeMascotaId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.RangoEdad)
+                @Html.TextAreaFor(model => model.RangoEdad, new { @class = "form-control", rows = 5, cols = 10 })
+                @Html.ValidationMessageFor(model => model.RangoEdad, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cantidad)
+                @Html.TextBoxFor(model => model.Cantidad, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrecioVenta)
+                @Html.TextBoxFor(model => model.PrecioVenta, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PrecioVenta, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrecioCompra)
+                @Html.TextBoxFor(model => model.PrecioCompra, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PrecioCompra, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Stock)
+                @Html.TextBoxFor(model => model.Stock, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+            </div>
+            <h2>Foto del Alimento</h2>
+
+            <div class="well">
+                <img id="imgSalida" src="@Url.Content($"~/Content/Imagenes/Alimentos/{Model.Imagen}")" alt="Imagen" style="width: 50%">
+                <div class="caption">
+                    <p>@Model.Nombre</p>
+                </div>
+                <span class="btn btn-default btn-file" id="file-input">
+                    @Html.TextBoxFor(modelo => modelo.ImagenFile, new { type = "file" })
+                </span>
+            </div>
+            <br>
+        </div>
+    </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-warning" />
+            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#file-input').change(function (e) {
+                addImage(e);
+            });
+            function addImage(e) {
+                var file = e.target.files[0],
+                    imageType = /image.*/;
+                if (!file.type.match(imageType))
+                    return;
+                var reader = new FileReader();
+                reader.onload = fileOnload;
+                reader.readAsDataURL(file);
+            }
+            function fileOnload(e) {
+                var result = e.target.result;
+                $('#imgSalida').attr("src", result);
+            }
+        });
+    </script>
+
+}
+
+
+

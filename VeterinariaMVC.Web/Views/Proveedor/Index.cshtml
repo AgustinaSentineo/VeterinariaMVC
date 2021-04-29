@@ -1,0 +1,67 @@
+﻿@model IEnumerable<VeterinariaMVC.Entidades.ViewModels.Proveedor.ProveedorListViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <a href="@Url.Action("Create","Proveedor")" class="btn btn-primary" style="float: right">Nuevo</a>
+    <h2>Lista de Proveedor</h2>
+
+</div>
+<hr />
+@if (TempData["Msg"] != null)
+{
+    var msg = TempData["Msg"].ToString();
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Éxito!</strong> @msg
+    </div>
+
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CUIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RazonSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Localidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CUIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazonSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Localidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoElectronico)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ProveedorId }, new { @class = "btn btn-warning" }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.ProveedorId }, new { @class = "btn btn-info" }) |*@
+                @Html.ActionLink("Borrar", "Delete", new { id = item.ProveedorId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+

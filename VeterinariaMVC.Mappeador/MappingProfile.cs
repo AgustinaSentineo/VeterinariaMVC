@@ -1,11 +1,18 @@
 ﻿using AutoMapper;
 using System;
+using VeterinariaMVC.Entidades.DTOs.Alimento;
 using VeterinariaMVC.Entidades.DTOs.Clasificacion;
+using VeterinariaMVC.Entidades.DTOs.Cliente;
+using VeterinariaMVC.Entidades.DTOs.Empleado;
 using VeterinariaMVC.Entidades.DTOs.FormaFarmaceutica;
 using VeterinariaMVC.Entidades.DTOs.Laboratorio;
 using VeterinariaMVC.Entidades.DTOs.Localidad;
 using VeterinariaMVC.Entidades.DTOs.Marca;
+using VeterinariaMVC.Entidades.DTOs.Mascota;
+using VeterinariaMVC.Entidades.DTOs.Medicamento;
 using VeterinariaMVC.Entidades.DTOs.NecesidadEspecial;
+using VeterinariaMVC.Entidades.DTOs.Producto;
+using VeterinariaMVC.Entidades.DTOs.Proveedor;
 using VeterinariaMVC.Entidades.DTOs.Raza;
 using VeterinariaMVC.Entidades.DTOs.TipoDeAlimento;
 using VeterinariaMVC.Entidades.DTOs.TipoDeDocumento;
@@ -14,12 +21,19 @@ using VeterinariaMVC.Entidades.DTOs.TipoDeMedicamento;
 using VeterinariaMVC.Entidades.DTOs.TipoDeProducto;
 using VeterinariaMVC.Entidades.DTOs.TipoDeTarea;
 using VeterinariaMVC.Entidades.Entidades;
+using VeterinariaMVC.Entidades.ViewModels.Alimento;
 using VeterinariaMVC.Entidades.ViewModels.Clasificacion;
+using VeterinariaMVC.Entidades.ViewModels.Cliente;
+using VeterinariaMVC.Entidades.ViewModels.Empleado;
 using VeterinariaMVC.Entidades.ViewModels.FormaFarmaceutica;
 using VeterinariaMVC.Entidades.ViewModels.Laboratorio;
 using VeterinariaMVC.Entidades.ViewModels.Localidad;
 using VeterinariaMVC.Entidades.ViewModels.Marca;
+using VeterinariaMVC.Entidades.ViewModels.Mascota;
+using VeterinariaMVC.Entidades.ViewModels.Medicamento;
 using VeterinariaMVC.Entidades.ViewModels.NecesidadEspecial;
+using VeterinariaMVC.Entidades.ViewModels.Producto;
+using VeterinariaMVC.Entidades.ViewModels.Proveedor;
 using VeterinariaMVC.Entidades.ViewModels.Provincia;
 using VeterinariaMVC.Entidades.ViewModels.Raza;
 using VeterinariaMVC.Entidades.ViewModels.TipoDeAlimento;
@@ -50,6 +64,80 @@ namespace VeterinariaMVC.Mappeador
             LoadMappingTipoDeAlimento();
             LoadMappingClasificacion();
             LoadMappingNecesidadEspecial();
+            LoadMappingCliente();
+            LoadMappingEmpleado();
+            LoadMappingMascota();
+            LoadMappingProveedor();
+            LoadMappingProducto();
+            LoadMappingAlimento();
+            LoadMappingMedicamento();
+        }
+
+        private void LoadMappingMedicamento()
+        {
+            CreateMap<Medicamento, MedicamentoListDto>();
+            CreateMap<Medicamento, MedicamentoEditDto>().ReverseMap();
+            CreateMap<MedicamentoListDto, MedicamentoListViewModel>().ReverseMap();
+            CreateMap<MedicamentoEditDto, MedicamentoEditViewModel>().ReverseMap();
+            CreateMap<MedicamentoEditDto, MedicamentoListDto>().ReverseMap();
+        }
+
+        private void LoadMappingAlimento()
+        {
+            CreateMap<Alimento, AlimentoListDto>();
+            CreateMap<Alimento, AlimentoEditDto>().ReverseMap();
+            CreateMap<AlimentoListDto, AlimentoListViewModel>().ReverseMap();
+            CreateMap<AlimentoEditDto, AlimentoEditViewModel>().ReverseMap();
+            CreateMap<AlimentoEditDto, AlimentoListDto>().ReverseMap();
+        }
+
+        private void LoadMappingProducto()
+        {
+            CreateMap<Producto, ProductoListDto>();
+            CreateMap<Producto, ProductoEditDto>().ReverseMap();
+            CreateMap<ProductoListDto, ProductoListViewModel>().ReverseMap();
+            CreateMap<ProductoEditDto, ProductoEditViewModel>().ReverseMap();
+            CreateMap<ProductoEditDto, ProductoListDto>().ReverseMap();
+        }
+
+        private void LoadMappingProveedor()
+        {
+            CreateMap<Proveedor, ProveedorListDto>();
+            CreateMap<Proveedor, ProveedorEditDto>().ReverseMap();
+            CreateMap<ProveedorListDto, ProveedorListViewModel>().ReverseMap();
+            CreateMap<ProveedorEditDto, ProveedorEditViewModel>().ReverseMap();
+            CreateMap<ProveedorEditDto, ProveedorListDto>().ReverseMap();
+        }
+
+        private void LoadMappingMascota()
+        {
+            CreateMap<Mascota, MascotaListDto>();
+            CreateMap<Mascota, MascotaEditDto>().ReverseMap();
+            CreateMap<MascotaListDto, MascotaListViewModel>().ReverseMap();
+            CreateMap<MascotaEditDto, MascotaEditViewModel>().ReverseMap();
+            CreateMap<MascotaEditDto, MascotaListDto>().ReverseMap();
+        }
+
+        private void LoadMappingEmpleado()
+        {
+            CreateMap<Empleado, EmpleadoListDto>();
+               
+            CreateMap<Empleado, EmpleadoEditDto>().ReverseMap();
+            CreateMap<EmpleadoListDto, EmpleadoListViewModel>().ReverseMap();
+            CreateMap<EmpleadoEditDto, EmpleadoEditViewModel>().ReverseMap();
+            CreateMap<EmpleadoEditDto, EmpleadoListDto>()
+                .ReverseMap();
+        }
+
+        private void LoadMappingCliente()
+        {
+            CreateMap<Cliente, ClienteListDto>();
+               
+            CreateMap<Cliente, ClienteEditDto>().ReverseMap();
+            CreateMap<ClienteListDto, ClienteListViewModel>().ReverseMap();
+            CreateMap<ClienteEditDto, ClienteEditViewModel>().ReverseMap();
+            CreateMap<ClienteEditDto, ClienteListDto>()
+                .ReverseMap();
         }
 
         private void LoadMappingNecesidadEspecial()

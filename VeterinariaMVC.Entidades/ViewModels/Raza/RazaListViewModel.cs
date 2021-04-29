@@ -6,7 +6,7 @@ namespace VeterinariaMVC.Entidades.ViewModels.Raza
     {
         public int RazaId { get; set; }
 
-        [Display(Name = "Descripcion")]
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
         [Display(Name = "Tipo de Mascota")]

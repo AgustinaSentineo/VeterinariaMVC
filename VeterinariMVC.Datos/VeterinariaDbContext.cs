@@ -32,10 +32,13 @@ namespace VeterinariMVC.Datos
         public DbSet<Clasificacion> Clasificiones { get; set; }
         public DbSet<NecesidadesEspeciales> NecesidadesEspeciales { get; set; }
         public DbSet<TipoDeAlimento> TiposDeAlimentos { get; set; }
-
-        //public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Raza> Razas { get; set; }
-        //public DbSet<Mascota> Mascotas { get; set; }
-        //public DbSet<Medicamento> Medicamentos { get; set; }
+        public DbSet<Mascota> Mascotas { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Empleado> Empleados { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Alimento> Alimentos { get; set; }
+        public DbSet<Medicamento> Medicamentos { get; set; }
     }
 }

@@ -1,0 +1,115 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Medicamento.MedicamentoEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nuevo</h2>
+
+
+@using (Html.BeginForm("Create", "Medicamento", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Medicamento</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NombreComercial)
+                    @Html.TextBoxFor(model => model.NombreComercial, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NombreComercial, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TipoDeMedicamentoId)
+                    @Html.DropDownListFor(model => model.TipoDeMedicamentoId, new SelectList(Model.TipoDeMedicamento, "TipoDeMedicamentoId", "Descripcion"), "Seleccione Tipo de Medicamento", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TipoDeMedicamentoId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FormaFarmaceuticaId)
+                    @Html.DropDownListFor(model => model.FormaFarmaceuticaId, new SelectList(Model.FormaFarmaceutica, "FormaFarmaceuticaId", "Descripcion"), "Seleccione una Forma Farmaceutica", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FormaFarmaceuticaId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LaboratorioId)
+                    @Html.DropDownListFor(model => model.LaboratorioId, new SelectList(Model.Laboratorio, "LaboratorioId", "Descripcion"), "Seleccione un Laboratorio", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LaboratorioId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PrecioVenta)
+                    @Html.TextBoxFor(model => model.PrecioVenta, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PrecioVenta, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnidadesEnStock)
+                    @Html.TextBoxFor(model => model.UnidadesEnStock, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UnidadesEnStock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NivelDeReposicion)
+                    @Html.TextBoxFor(model => model.NivelDeReposicion, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NivelDeReposicion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CantidadesPorUnidad)
+                    @Html.TextBoxFor(model => model.CantidadesPorUnidad, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CantidadesPorUnidad, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Suspendido)
+                    @Html.CheckBoxFor(model => model.Suspendido)
+                    @Html.ValidationMessageFor(model => model.Suspendido, "", new { @class = "text-danger" })
+                </div>
+                <h2>Foto del Medicamento</h2>
+
+                <div class="well">
+                    <img id="imgSalida" src="@Url.Content($"~/Content/Imagenes/Medicamentos/{Model.Imagen}")" alt="Imagen" style="width: 50%">
+                    <div class="caption">
+                        <p>@Model.NombreComercial</p>
+                    </div>
+                    <span class="btn btn-default btn-file" id="file-input">
+                        @Html.TextBoxFor(modelo => modelo.ImagenFile, new { type = "file" })
+                    </span>
+                </div>
+                <br>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#file-input').change(function (e) {
+                addImage(e);
+            });
+            function addImage(e) {
+                var file = e.target.files[0],
+                    imageType = /image.*/;
+                if (!file.type.match(imageType))
+                    return;
+                var reader = new FileReader();
+                reader.onload = fileOnload;
+                reader.readAsDataURL(file);
+            }
+            function fileOnload(e) {
+                var result = e.target.result;
+                $('#imgSalida').attr("src", result);
+            }
+        });
+    </script>
+
+}
+
+

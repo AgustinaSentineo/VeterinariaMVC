@@ -103,6 +103,30 @@
     <Compile Include="frmClasificacionAE.Designer.cs">
       <DependentUpon>frmClasificacionAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClienteAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClienteAE.Designer.cs">
+      <DependentUpon>frmClienteAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpleado.Designer.cs">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpleadoAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpleadoAE.Designer.cs">
+      <DependentUpon>frmEmpleadoAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFormaFarmaceutica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +175,18 @@
     <Compile Include="frmMarcaAE.Designer.cs">
       <DependentUpon>frmMarcaAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMascota.Designer.cs">
+      <DependentUpon>frmMascota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMascotaAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMascotaAE.Designer.cs">
+      <DependentUpon>frmMascotaAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +210,18 @@
     </Compile>
     <Compile Include="frmNecesidadEspecialAE.Designer.cs">
       <DependentUpon>frmNecesidadEspecialAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedor.Designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedorAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedorAE.Designer.cs">
+      <DependentUpon>frmProveedorAE.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProvincia.cs">
       <SubType>Form</SubType>
@@ -289,6 +337,18 @@
     <EmbeddedResource Include="frmClasificacionAE.resx">
       <DependentUpon>frmClasificacionAE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClienteAE.resx">
+      <DependentUpon>frmClienteAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpleado.resx">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpleadoAE.resx">
+      <DependentUpon>frmEmpleadoAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFormaFarmaceutica.resx">
       <DependentUpon>frmFormaFarmaceutica.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +373,12 @@
     <EmbeddedResource Include="frmMarcaAE.resx">
       <DependentUpon>frmMarcaAE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMascota.resx">
+      <DependentUpon>frmMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMascotaAE.resx">
+      <DependentUpon>frmMascotaAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +390,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNecesidadEspecialAE.resx">
       <DependentUpon>frmNecesidadEspecialAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedorAE.resx">
+      <DependentUpon>frmProveedorAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProvincia.resx">
       <DependentUpon>frmProvincia.cs</DependentUpon>

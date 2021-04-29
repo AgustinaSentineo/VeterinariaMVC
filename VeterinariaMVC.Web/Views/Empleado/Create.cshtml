@@ -1,0 +1,97 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Empleado.EmpleadoEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nuevo</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Empleado</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre)
+                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Apellido)
+                    @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TipoDeDocumentoId)
+                    @Html.DropDownListFor(model => model.TipoDeDocumentoId, new SelectList(Model.TipoDeDocumento, "TipoDeDocumentoId", "Descripcion"), "Seleccione un Tipo de Documento", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TipoDeDocumentoId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NroDocumento)
+                    @Html.TextBoxFor(model => model.NroDocumento, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NroDocumento, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TipoDeTareaId)
+                    @Html.DropDownListFor(model => model.TipoDeTareaId, new SelectList(Model.TipoDeTarea, "TipoDeTareaId", "Descripcion"), "Seleccione una Provincia", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TipoDeTareaId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProvinciaId)
+                    @Html.DropDownListFor(model => model.ProvinciaId, new SelectList(Model.Provincia, "ProvinciaId", "NombreProvincia"), "Seleccione una Provincia", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProvinciaId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LocalidadId)
+                    @Html.DropDownListFor(model => model.LocalidadId, new SelectList(Model.Localidad, "LocalidadId", "NombreLocalidad"), "Seleccione una Localidad", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LocalidadId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Calle)
+                    @Html.TextBoxFor(model => model.Calle, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Altura)
+                    @Html.TextBoxFor(model => model.Altura, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TelefonoFijo)
+                    @Html.TextBoxFor(model => model.TelefonoFijo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TelefonoFijo, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TelefonoMovil)
+                    @Html.TextBoxFor(model => model.TelefonoMovil, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TelefonoMovil, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CorreoElectronico)
+                    @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-success" })
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

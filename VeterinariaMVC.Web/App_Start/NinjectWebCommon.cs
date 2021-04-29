@@ -69,6 +69,21 @@ namespace VeterinariaMVC.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IRepositorioProducto>().To<RepositorioProducto>().InRequestScope();
+            kernel.Bind<IServicioProducto>().To<ServicioProducto>().InRequestScope();
+
+            kernel.Bind<IServicioCliente>().To<ServicioCliente>().InRequestScope();
+            kernel.Bind<IRepositorioCliente>().To<RepositorioCliente>().InRequestScope();
+
+            kernel.Bind<IServicioEmpleado>().To<ServicioEmpleado>().InRequestScope();
+            kernel.Bind<IRepositorioEmpleado>().To<RepositorioEmpleado>().InRequestScope();
+
+            kernel.Bind<IServicioMascota>().To<ServicioMascota>().InRequestScope();
+            kernel.Bind<IRepositorioMascota>().To<RepositorioMascota>().InRequestScope();
+
+            kernel.Bind<IServicioProveedor>().To<ServicioProveedor>().InRequestScope();
+            kernel.Bind<IRepositorioProveedor>().To<RepositorioProveedor>().InRequestScope();
+
             kernel.Bind<IServicioRaza>().To<ServicioRaza>().InRequestScope();
             kernel.Bind<IRepositorioRaza>().To<RepositorioRaza>().InRequestScope();
 
@@ -89,6 +104,9 @@ namespace VeterinariaMVC.Web.App_Start
 
             kernel.Bind<IServicioTipoDeMascota>().To<ServicioTipoDeMascota>().InRequestScope();
             kernel.Bind<IRepositorioTipoDeMascota>().To<RepositorioTipoDeMascota>().InRequestScope();
+
+            kernel.Bind<IServicioMedicamento>().To<ServicioMedicamento>().InRequestScope();
+            kernel.Bind<IRepositorioMedicamento>().To<RepositorioMedicamento>().InRequestScope();
 
             kernel.Bind<IServicioTipoDeMedicamento>().To<ServicioTipoDeMedicamento>().InRequestScope();
             kernel.Bind<IRepositorioTipoDeMedicamento>().To<RepositorioTipoDeMedicamento>().InRequestScope();
@@ -113,6 +131,9 @@ namespace VeterinariaMVC.Web.App_Start
 
             kernel.Bind<IRepositorioTipoDeAlimento>().To<RepositorioTipoDeAlimento>().InRequestScope();
             kernel.Bind<IServicioTipoDeAlimento>().To<ServicioTipoDeAlimento>().InRequestScope();
+
+            kernel.Bind<IRepositorioAlimento>().To<RepositorioAlimento>().InRequestScope();
+            kernel.Bind<IServicioAlimento>().To<ServicioAlimento>().InRequestScope();
 
 
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();

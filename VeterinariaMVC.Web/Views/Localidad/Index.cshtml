@@ -55,9 +55,9 @@
                         @Html.DisplayFor(modelItem => item.Provincia)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.LocalidadId }, new { @class = "btn btn-warning" }) |
-                        @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}, new { @class = "btn btn-info" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.LocalidadId }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.LocalidadId }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Detalles", "Details", new {/* id=item.PrimaryKey */}, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.LocalidadId }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
             }

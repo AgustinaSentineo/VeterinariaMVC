@@ -1,0 +1,60 @@
+﻿@model VeterinariaMVC.Entidades.ViewModels.Mascota.MascotaListViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>Está seguro de borrar el registro seleccionado?</h3>
+<div>
+    <h4>Mascota</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDeMascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDeMascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.MascotaId)
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-success" })
+        </div>
+
+    }
+</div>
+

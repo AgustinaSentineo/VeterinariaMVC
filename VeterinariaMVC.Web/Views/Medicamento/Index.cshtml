@@ -1,0 +1,79 @@
+﻿@model IEnumerable<VeterinariaMVC.Entidades.ViewModels.Medicamento.MedicamentoListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <a href="@Url.Action("Create","Medicamento")" class="btn btn-primary" style="float: right">
+        Nuevo
+    </a>
+    <h2>Listado de Medicamento</h2>
+</div>
+@if (TempData["Msg"] != null)
+{
+    var msg = TempData["Msg"].ToString();
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Éxito!</strong> @msg
+    </div>
+
+}
+
+<hr />
+<div class="row">
+
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreComercial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoDeMedicamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecioVenta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Suspendido)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@Url.Content($"~/Content/Imagenes/Medicamentos/{item.Imagen}")" style="height: 50px" class="img-thumbnail" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreComercial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoDeMedicamento)
+                    </td>
+
+                    <td style="width: 100px">
+                        @Html.DisplayFor(modelItem => item.PrecioVenta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Suspendido)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.MedicamentoId}, new { @class = "btn btn-warning" }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.MedicamentoId}, new { @class = "btn btn-info" }) |*@
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.MedicamentoId}, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
+

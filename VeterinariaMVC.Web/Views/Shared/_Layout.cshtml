@@ -25,37 +25,62 @@
                     <li>@Html.ActionLink("Provincias", "Index", "Provincias")</li>
                     <li>@Html.ActionLink("Localidad", "Index", "Localidad")</li>
                     <li>@Html.ActionLink("Tipo De Documento", "Index", "TipoDeDocumento")</li>
-                    <li>@Html.ActionLink("Raza", "Index", "Raza")</li>
-                    <li>@Html.ActionLink("Tipo De Mascota", "Index", "TipoDeMascota")</li>
-                    <li>@Html.ActionLink("Tipo De Tarea", "Index", "TipoDeTarea")</li>
+                    @*<li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>*@
+                    <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
                     <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mascotas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Mascota")">Mascota</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Raza")">Raza</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","TipoDeMascota")">Tipo de Mascota</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Cliente")">Clientes</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Staff
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Empleado")">Empleados</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","TipoDeTarea")">Tipo de Tarea</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Alimentos
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","TipoDeAlimento")">Tipo De Alimento</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","NecesidadEspecial")">Necesidad Especial</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Clasificacion")">Clasificacion</a>
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Alimento")">Alimento</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","TipoDeAlimento")">Tipo De Alimento</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","NecesidadEspecial")">Necesidad Especial</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Clasificacion")">Clasificacion</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Farmacia
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","FormaFarmaceutica")">Formas Farmaceuticas</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Laboratorio")">Laboratorios</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","TipoDeMedicamento")">TipoDeMedicamento</a>
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Medicamento")">Medicamento</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","FormaFarmaceutica")">Formas Farmaceuticas</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Laboratorio")">Laboratorios</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","TipoDeMedicamento")">Tipo de Medicamento</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Tienda
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index","TipoDeProducto")">Tipo de Producto</a>
-                            <a class="dropdown-item" href="@Url.Action("Index","Marca")">Marca</a>
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Producto")">Producto</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","TipoDeProducto")">Tipo de Producto</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","Marca")">Marca</a></li>
+                        </ul>
                     </li>
 
                 </ul>
